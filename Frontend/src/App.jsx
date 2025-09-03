@@ -1,37 +1,24 @@
-import { useState } from 'react'
-import add_icon from './assets/png-logo.png'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import RegisterForm from "./Components/RegisterForm/RegisterForm";
+import LoginForm from "./Components/LoginForm/LoginForm";
+import Dashboard from "./Components/Dashboard/Dashboard";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-
-        </a>
-        <a href="https://react.dev" target="_blank">
-  
-          <img src={add_icon} className="logo react" alt="" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/register" />} />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route
+          path="/dashboard"
+          element={isLoggedIn ? <Dashboard /> : <Navigate to="/login" />}
+        />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
