@@ -17,8 +17,16 @@ export default function RegisterForm() {
   };
 
   return (
+    <div className="register">
+    <div className="title1">
+    <h1 className="title">SERV-IN</h1>
+    <h2 className="slogan">Quick Help, Right at Your Doorstep.</h2>
+    </div>
+    <div className="signup">
     <form onSubmit={handleRegister}>
-      <h2 className="Register">Register</h2>
+      <h2 className="Register">Sign Up</h2>
+
+      <div className="input_fields">
       <input
         type="text"
         placeholder="Username"
@@ -27,6 +35,7 @@ export default function RegisterForm() {
         required className="username"
       />
       <br />
+
       <input
         type="password"
         placeholder="Password"
@@ -34,8 +43,13 @@ export default function RegisterForm() {
         onChange={(e) => setPassword(e.target.value)}
         required className="Password"
       />
+      </div>
+
       <br />
-      <button type="submit" className="submit_button">Register</button>
+      <button type="submit" className="signup_button">Sign Up</button>
     </form>
+    </div>
+    </div>
+    
   );
 }
