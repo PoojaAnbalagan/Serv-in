@@ -21,24 +21,24 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleLogin}>
-      <h2>Login</h2>
+      <h2 className="Login">Login</h2>
       <input
         type="text"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         required
-      />
+      className="textfield"/>
       <br />
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        required
+        required className="password"
       />
       <br />
-      <button type="submit">Login</button>
+      <button type="submit" className="submit_button">Login</button>
     </form>
   );
 }

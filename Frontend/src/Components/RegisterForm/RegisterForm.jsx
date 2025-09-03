@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./RegisterForm.css"
 
 export default function RegisterForm() {
   const [username, setUsername] = useState("");
@@ -16,25 +17,39 @@ export default function RegisterForm() {
   };
 
   return (
+    <div className="register">
+    <div className="title1">
+    <h1 className="title">SERV-IN</h1>
+    <h2 className="slogan">Quick Help, Right at Your Doorstep.</h2>
+    </div>
+    <div className="signup">
     <form onSubmit={handleRegister}>
-      <h2>Register</h2>
+      <h2 className="Register">Sign Up</h2>
+
+      <div className="input_fields">
       <input
         type="text"
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        required
+        required className="username"
       />
       <br />
+
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        required
+        required className="Password"
       />
+      </div>
+
       <br />
-      <button type="submit">Register</button>
+      <button type="submit" className="signup_button">Sign Up</button>
     </form>
+    </div>
+    </div>
+    
   );
 }
